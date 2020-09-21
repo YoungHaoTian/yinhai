@@ -1,0 +1,249 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.yinhai.demo.mapper.read.PersonInfoReadMapper">
+
+    <sql id="all_column">
+        PSN_NO psnNo, PSN_MGTCODE, PSN_NAME psnName, ALIS, GEND, BRDY, PSN_CERT_TYPE psnCertType, CERTNO, HSECFC, TEL, MOB, NATY, NAT_REGN_CODE, EMAIL, POLSTAS, FST_PATC_JOB_DATE, RESD_NATU, RESD_LOC_ADMDVS, RESD_ADDR, RESD_ADDR_POSCODE, LIVE_ADMDVS, LIVE_ADDR liveAddr, LIVE_ADDR_POSCODE, RESDBOOK_NO, MRG_STAS, HLCON, MEMO, SURV_STAS, MUL_PROV_MNT_FLAG, ADMDUT, RETR_TYPE, GRAD_SCHL gradSchl, EDUC, PRO_TECH_DUTY_LV, NAT_PRFS_QUA_LV, VALI_FLAG, RID, CRTE_TIME crteTime, UPDT_TIME updtTime, CRTER, CRTER_NAME, CRTE_OPTINS, OPTER, OPTER_NAME, OPT_TIME, OPTINS, VER
+    </sql>
+    <!--查询单个-->
+    <select id="queryById" resultType="com.yinhai.demo.vo.PsnInfoBInfoVo">
+        select
+        <include refid="all_column"></include>
+        from psn_info_b
+        where PSN_NO = #{psnNo}
+    </select>
+
+    <!--查询指定行数据-->
+    <select id="queryList" resultType="com.yinhai.demo.vo.PsnInfoBInfoVo">
+        select
+        <include refid="all_column"></include>
+        from psn_info_b
+        <where>
+            <if test="psnNo != null and psnNo != ''">
+                and PSN_NO = #{psnNo}
+            </if>
+            <if test="psnMgtcode != null and psnMgtcode != ''">
+                and PSN_MGTCODE = #{psnMgtcode}
+            </if>
+            <if test="psnName != null and psnName != ''">
+                and PSN_NAME = #{psnName}
+            </if>
+            <if test="alis != null and alis != ''">
+                and ALIS = #{alis}
+            </if>
+            <if test="gend != null and gend != ''">
+                and GEND = #{gend}
+            </if>
+            <if test="brdy != null">
+                and BRDY = #{brdy}
+            </if>
+            <if test="psnCertType != null and psnCertType != ''">
+                and PSN_CERT_TYPE = #{psnCertType}
+            </if>
+            <if test="certno != null and certno != ''">
+                and CERTNO = #{certno}
+            </if>
+            <if test="hsecfc != null and hsecfc != ''">
+                and HSECFC = #{hsecfc}
+            </if>
+            <if test="tel != null and tel != ''">
+                and TEL = #{tel}
+            </if>
+            <if test="mob != null and mob != ''">
+                and MOB = #{mob}
+            </if>
+            <if test="naty != null and naty != ''">
+                and NATY = #{naty}
+            </if>
+            <if test="natRegnCode != null and natRegnCode != ''">
+                and NAT_REGN_CODE = #{natRegnCode}
+            </if>
+            <if test="email != null and email != ''">
+                and EMAIL = #{email}
+            </if>
+            <if test="polstas != null and polstas != ''">
+                and POLSTAS = #{polstas}
+            </if>
+            <if test="fstPatcJobDate != null">
+                and FST_PATC_JOB_DATE = #{fstPatcJobDate}
+            </if>
+            <if test="resdNatu != null and resdNatu != ''">
+                and RESD_NATU = #{resdNatu}
+            </if>
+            <if test="resdLocAdmdvs != null and resdLocAdmdvs != ''">
+                and RESD_LOC_ADMDVS = #{resdLocAdmdvs}
+            </if>
+            <if test="resdAddr != null and resdAddr != ''">
+                and RESD_ADDR = #{resdAddr}
+            </if>
+            <if test="resdAddrPoscode != null and resdAddrPoscode != ''">
+                and RESD_ADDR_POSCODE = #{resdAddrPoscode}
+            </if>
+            <if test="liveAdmdvs != null and liveAdmdvs != ''">
+                and LIVE_ADMDVS = #{liveAdmdvs}
+            </if>
+            <if test="liveAddr != null and liveAddr != ''">
+                and LIVE_ADDR = #{liveAddr}
+            </if>
+            <if test="liveAddrPoscode != null and liveAddrPoscode != ''">
+                and LIVE_ADDR_POSCODE = #{liveAddrPoscode}
+            </if>
+            <if test="resdbookNo != null and resdbookNo != ''">
+                and RESDBOOK_NO = #{resdbookNo}
+            </if>
+            <if test="mrgStas != null and mrgStas != ''">
+                and MRG_STAS = #{mrgStas}
+            </if>
+            <if test="hlcon != null and hlcon != ''">
+                and HLCON = #{hlcon}
+            </if>
+            <if test="memo != null and memo != ''">
+                and MEMO = #{memo}
+            </if>
+            <if test="survStas != null and survStas != ''">
+                and SURV_STAS = #{survStas}
+            </if>
+            <if test="mulProvMntFlag != null and mulProvMntFlag != ''">
+                and MUL_PROV_MNT_FLAG = #{mulProvMntFlag}
+            </if>
+            <if test="admdut != null and admdut != ''">
+                and ADMDUT = #{admdut}
+            </if>
+            <if test="retrType != null and retrType != ''">
+                and RETR_TYPE = #{retrType}
+            </if>
+            <if test="gradSchl != null and gradSchl != ''">
+                and GRAD_SCHL = #{gradSchl}
+            </if>
+            <if test="educ != null and educ != ''">
+                and EDUC = #{educ}
+            </if>
+            <if test="proTechDutyLv != null and proTechDutyLv != ''">
+                and PRO_TECH_DUTY_LV = #{proTechDutyLv}
+            </if>
+            <if test="natPrfsQuaLv != null and natPrfsQuaLv != ''">
+                and NAT_PRFS_QUA_LV = #{natPrfsQuaLv}
+            </if>
+            <if test="valiFlag != null and valiFlag != ''">
+                and VALI_FLAG = #{valiFlag}
+            </if>
+            <if test="rid != null and rid != ''">
+                and RID = #{rid}
+            </if>
+            <if test="crteTime != null">
+                and CRTE_TIME = #{crteTime}
+            </if>
+            <if test="updtTime != null">
+                and UPDT_TIME = #{updtTime}
+            </if>
+            <if test="crter != null and crter != ''">
+                and CRTER = #{crter}
+            </if>
+            <if test="crterName != null and crterName != ''">
+                and CRTER_NAME = #{crterName}
+            </if>
+            <if test="crteOptins != null and crteOptins != ''">
+                and CRTE_OPTINS = #{crteOptins}
+            </if>
+            <if test="opter != null and opter != ''">
+                and OPTER = #{opter}
+            </if>
+            <if test="opterName != null and opterName != ''">
+                and OPTER_NAME = #{opterName}
+            </if>
+            <if test="optTime != null">
+                and OPT_TIME = #{optTime}
+            </if>
+            <if test="optins != null and optins != ''">
+                and OPTINS = #{optins}
+            </if>
+            <if test="ver != null and ver != ''">
+                and VER = #{ver}
+            </if>
+
+        </where>
+    </select>
+
+
+    <!--模糊条件查询-->
+    <select id="vagueQueryList" resultType="com.yinhai.demo.vo.PsnInfoBInfoVo">
+        select
+        <include refid="all_column"></include>
+        from psn_info_b
+        <where>
+            <if test="psnNo != null and psnNo != ''">
+                and PSN_NO like "%"#{psnNo}"%"
+            </if>
+            <if test="psnName != null and psnName != ''">
+                and PSN_NAME like "%"#{psnName}"%"
+            </if>
+            <if test="psnCertType != null and psnCertType != ''">
+                and PSN_CERT_TYPE = #{psnCertType}
+            </if>
+            <if test="certno != null and certno != ''">
+                and CERTNO like "%"#{certno}"%"
+            </if>
+            <if test="mob != null and mob != ''">
+                and MOB like "%"#{mob}"%"
+            </if>
+            <if test="email != null and email != ''">
+                and EMAIL like "%"#{email}"%"
+            </if>
+        </where>
+    </select>
+
+    <!--根据参数值返回包含该参数值的所有主键-->
+    <select id="queryPsnNoList" parameterType="string" resultType="string">
+        select distinct PSN_NO
+        from psn_info_b
+        where PSN_NO like "%"#{psnNo}"%"
+    </select>
+
+    <!--根据查询条件进行模糊查询统计数量-->
+    <select id="vagueCountNumber" resultType="long">
+        SELECT count(0) FROM psn_info_b
+        <where>
+            <if test="psnNo != null and psnNo != ''">
+                and PSN_NO like "%"#{psnNo}"%"
+            </if>
+            <if test="psnName != null and psnName != ''">
+                and PSN_NAME like "%"#{psnName}"%"
+            </if>
+            <if test="psnCertType != null and psnCertType != ''">
+                and PSN_CERT_TYPE = #{psnCertType}
+            </if>
+            <if test="certno != null and certno != ''">
+                and CERTNO like "%"#{certno}"%"
+            </if>
+            <if test="mob != null and mob != ''">
+                and MOB like "%"#{mob}"%"
+            </if>
+            <if test="email != null and email != ''">
+                and EMAIL like "%"#{email}"%"
+            </if>
+        </where>
+    </select>
+    <!--根据查询条件统计数量-->
+    <select id="countNumber" resultType="long">
+        SELECT count(0) FROM psn_info_b
+        <where>
+            <if test="psnCertType != null and psnCertType != ''">
+                and PSN_CERT_TYPE = #{psnCertType}
+            </if>
+            <if test="certno != null and certno != ''">
+                and CERTNO = #{certno}
+            </if>
+            <if test="mob != null and mob != ''">
+                and MOB = #{mob}
+            </if>
+            <if test="email != null and email != ''">
+                and EMAIL = #{email}
+            </if>
+            <if test="tel != null and tel != ''">
+                and TEL = #{tel}
+            </if>
+        </where>
+    </select>
+
+
+</mapper>

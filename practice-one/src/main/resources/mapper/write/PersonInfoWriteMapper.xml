@@ -1,0 +1,172 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.yinhai.demo.mapper.write.PersonInfoWriteMapper">
+
+    <!--新增所有列-->
+    <insert id="insert" parameterType="com.yinhai.demo.vo.PsnInfoBInfoVo">
+        <selectKey order="BEFORE" keyProperty="psnNo" resultType="string">
+            select nextval('SEQ_PSN_NO')
+        </selectKey>
+        insert into psn_info_b(PSN_NO, PSN_MGTCODE, PSN_NAME, ALIS, GEND, BRDY, PSN_CERT_TYPE, CERTNO, HSECFC, TEL, MOB, NATY, NAT_REGN_CODE, EMAIL, POLSTAS, FST_PATC_JOB_DATE, RESD_NATU, RESD_LOC_ADMDVS, RESD_ADDR, RESD_ADDR_POSCODE, LIVE_ADMDVS, LIVE_ADDR, LIVE_ADDR_POSCODE, RESDBOOK_NO, MRG_STAS, HLCON, MEMO, SURV_STAS, MUL_PROV_MNT_FLAG, ADMDUT, RETR_TYPE, GRAD_SCHL, EDUC, PRO_TECH_DUTY_LV, NAT_PRFS_QUA_LV, VALI_FLAG, RID, CRTE_TIME, UPDT_TIME, CRTER, CRTER_NAME, CRTE_OPTINS, OPTER, OPTER_NAME, OPT_TIME, OPTINS, VER)
+        values (#{psnNo,jdbcType=VARCHAR}, #{psnMgtcode,jdbcType=VARCHAR}, #{psnName,jdbcType=VARCHAR}, #{alis,jdbcType=VARCHAR}, #{gend,jdbcType=VARCHAR}, #{brdy,jdbcType=TIMESTAMP}, #{psnCertType,jdbcType=VARCHAR}, #{certno,jdbcType=VARCHAR}, #{hsecfc,jdbcType=VARCHAR}, #{tel,jdbcType=VARCHAR}, #{mob,jdbcType=VARCHAR}, #{naty,jdbcType=VARCHAR}, #{natRegnCode,jdbcType=VARCHAR}, #{email,jdbcType=VARCHAR}, #{polstas,jdbcType=VARCHAR}, #{fstPatcJobDate,jdbcType=TIMESTAMP}, #{resdNatu,jdbcType=VARCHAR}, #{resdLocAdmdvs,jdbcType=VARCHAR}, #{resdAddr,jdbcType=VARCHAR}, #{resdAddrPoscode,jdbcType=VARCHAR}, #{liveAdmdvs,jdbcType=VARCHAR}, #{liveAddr,jdbcType=VARCHAR}, #{liveAddrPoscode,jdbcType=VARCHAR}, #{resdbookNo,jdbcType=VARCHAR}, #{mrgStas,jdbcType=VARCHAR}, #{hlcon,jdbcType=VARCHAR}, #{memo,jdbcType=VARCHAR}, #{survStas,jdbcType=VARCHAR}, #{mulProvMntFlag,jdbcType=VARCHAR}, #{admdut,jdbcType=VARCHAR}, #{retrType,jdbcType=VARCHAR}, #{gradSchl,jdbcType=VARCHAR}, #{educ,jdbcType=VARCHAR}, #{proTechDutyLv,jdbcType=VARCHAR}, #{natPrfsQuaLv,jdbcType=VARCHAR}, #{valiFlag,jdbcType=VARCHAR}, #{rid,jdbcType=VARCHAR}, #{crteTime,jdbcType=TIMESTAMP}, #{updtTime,jdbcType=TIMESTAMP}, #{crter,jdbcType=VARCHAR}, #{crterName,jdbcType=VARCHAR}, #{crteOptins,jdbcType=VARCHAR}, #{opter,jdbcType=VARCHAR}, #{opterName,jdbcType=VARCHAR}, #{optTime,jdbcType=TIMESTAMP}, #{optins,jdbcType=VARCHAR}, #{ver,jdbcType=VARCHAR})
+    </insert>
+
+    <!--通过主键修改数据-->
+    <update id="update" parameterType="com.yinhai.demo.vo.PsnInfoBInfoVo">
+        update psn_info_b
+        <set>
+            <if test="psnMgtcode != null and psnMgtcode != ''">
+                PSN_MGTCODE = #{psnMgtcode,jdbcType=VARCHAR},
+            </if>
+            <if test="psnName != null and psnName != ''">
+                PSN_NAME = #{psnName,jdbcType=VARCHAR},
+            </if>
+            <if test="alis != null">
+                ALIS = #{alis,jdbcType=VARCHAR},
+            </if>
+            <if test="gend != null and gend != ''">
+                GEND = #{gend,jdbcType=VARCHAR},
+            </if>
+            <if test="brdy != null">
+                BRDY = #{brdy,jdbcType=TIMESTAMP},
+            </if>
+            <if test="psnCertType != null and psnCertType != ''">
+                PSN_CERT_TYPE = #{psnCertType,jdbcType=VARCHAR},
+            </if>
+            <if test="certno != null and certno != ''">
+                CERTNO = #{certno,jdbcType=VARCHAR},
+            </if>
+            <if test="hsecfc != null and hsecfc != ''">
+                HSECFC = #{hsecfc,jdbcType=VARCHAR},
+            </if>
+            <if test="tel != null">
+                TEL = #{tel,jdbcType=VARCHAR},
+            </if>
+            <if test="mob != null and mob != ''">
+                MOB = #{mob,jdbcType=VARCHAR},
+            </if>
+            <if test="naty != null and naty != ''">
+                NATY = #{naty,jdbcType=VARCHAR},
+            </if>
+            <if test="natRegnCode != null and natRegnCode != ''">
+                NAT_REGN_CODE = #{natRegnCode,jdbcType=VARCHAR},
+            </if>
+            <if test="email != null and email != ''">
+                EMAIL = #{email,jdbcType=VARCHAR},
+            </if>
+            <if test="polstas != null and polstas != ''">
+                POLSTAS = #{polstas,jdbcType=VARCHAR},
+            </if>
+            <if test="fstPatcJobDate != null">
+                FST_PATC_JOB_DATE = #{fstPatcJobDate,jdbcType=TIMESTAMP},
+            </if>
+            <if test="resdNatu != null and resdNatu != ''">
+                RESD_NATU = #{resdNatu,jdbcType=VARCHAR},
+            </if>
+            <if test="resdLocAdmdvs != null and resdLocAdmdvs != ''">
+                RESD_LOC_ADMDVS = #{resdLocAdmdvs,jdbcType=VARCHAR},
+            </if>
+            <if test="resdAddr != null and resdAddr != ''">
+                RESD_ADDR = #{resdAddr,jdbcType=VARCHAR},
+            </if>
+            <if test="resdAddrPoscode != null and resdAddrPoscode != ''">
+                RESD_ADDR_POSCODE = #{resdAddrPoscode,jdbcType=VARCHAR},
+            </if>
+            <if test="liveAdmdvs != null and liveAdmdvs != ''">
+                LIVE_ADMDVS = #{liveAdmdvs,jdbcType=VARCHAR},
+            </if>
+            <if test="liveAddr != null and liveAddr != ''">
+                LIVE_ADDR = #{liveAddr,jdbcType=VARCHAR},
+            </if>
+            <if test="liveAddrPoscode != null and liveAddrPoscode != ''">
+                LIVE_ADDR_POSCODE = #{liveAddrPoscode,jdbcType=VARCHAR},
+            </if>
+            <if test="resdbookNo != null and resdbookNo != ''">
+                RESDBOOK_NO = #{resdbookNo,jdbcType=VARCHAR},
+            </if>
+            <if test="mrgStas != null and mrgStas != ''">
+                MRG_STAS = #{mrgStas,jdbcType=VARCHAR},
+            </if>
+            <if test="hlcon != null and hlcon != ''">
+                HLCON = #{hlcon,jdbcType=VARCHAR},
+            </if>
+            <if test="memo != null and memo != ''">
+                MEMO = #{memo,jdbcType=VARCHAR},
+            </if>
+            <if test="survStas != null and survStas != ''">
+                SURV_STAS = #{survStas,jdbcType=VARCHAR},
+            </if>
+            <if test="mulProvMntFlag != null and mulProvMntFlag != ''">
+                MUL_PROV_MNT_FLAG = #{mulProvMntFlag,jdbcType=VARCHAR},
+            </if>
+            <if test="admdut != null and admdut != ''">
+                ADMDUT = #{admdut,jdbcType=VARCHAR},
+            </if>
+            <if test="retrType != null and retrType != ''">
+                RETR_TYPE = #{retrType,jdbcType=VARCHAR},
+            </if>
+            <if test="gradSchl != null and gradSchl != ''">
+                GRAD_SCHL = #{gradSchl,jdbcType=VARCHAR},
+            </if>
+            <if test="educ != null and educ != ''">
+                EDUC = #{educ,jdbcType=VARCHAR},
+            </if>
+            <if test="proTechDutyLv != null and proTechDutyLv != ''">
+                PRO_TECH_DUTY_LV = #{proTechDutyLv,jdbcType=VARCHAR},
+            </if>
+            <if test="natPrfsQuaLv != null and natPrfsQuaLv != ''">
+                NAT_PRFS_QUA_LV = #{natPrfsQuaLv,jdbcType=VARCHAR},
+            </if>
+            <if test="valiFlag != null and valiFlag != ''">
+                VALI_FLAG = #{valiFlag,jdbcType=VARCHAR},
+            </if>
+            <if test="rid != null and rid != ''">
+                RID = #{rid,jdbcType=VARCHAR},
+            </if>
+            <if test="crteTime != null">
+                CRTE_TIME = #{crteTime,jdbcType=TIMESTAMP},
+            </if>
+            <if test="updtTime != null">
+                UPDT_TIME = #{updtTime,jdbcType=TIMESTAMP},
+            </if>
+            <if test="crter != null and crter != ''">
+                CRTER = #{crter,jdbcType=VARCHAR},
+            </if>
+            <if test="crterName != null and crterName != ''">
+                CRTER_NAME = #{crterName,jdbcType=VARCHAR},
+            </if>
+            <if test="crteOptins != null and crteOptins != ''">
+                CRTE_OPTINS = #{crteOptins,jdbcType=VARCHAR},
+            </if>
+            <if test="opter != null and opter != ''">
+                OPTER = #{opter,jdbcType=VARCHAR},
+            </if>
+            <if test="opterName != null and opterName != ''">
+                OPTER_NAME = #{opterName,jdbcType=VARCHAR},
+            </if>
+            <if test="optTime != null">
+                OPT_TIME = #{optTime,jdbcType=TIMESTAMP},
+            </if>
+            <if test="optins != null and optins != ''">
+                OPTINS = #{optins,jdbcType=VARCHAR},
+            </if>
+            <if test="ver != null and ver != ''">
+                VER = #{ver,jdbcType=VARCHAR},
+            </if>
+        </set>
+        where PSN_NO = #{psnNo}
+    </update>
+
+    <!--通过主键物理删除-->
+    <delete id="deleteById">
+        delete from psn_info_b where PSN_NO = #{psnNo}
+    </delete>
+
+    <!--通过主键逻辑删除-->
+    <delete id="updateToDestroyById">
+        update psn_info_b
+        set destory = '1'
+        where PSN_NO = #{psnNo}
+    </delete>
+
+</mapper>
