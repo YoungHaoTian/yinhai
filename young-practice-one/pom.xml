@@ -108,6 +108,16 @@
             <artifactId>spring-boot-starter-test</artifactId>
             <scope>test</scope>
         </dependency>
+        <!-- 数据字典 -->
+        <dependency>
+            <groupId>com.yinhai.ta404</groupId>
+            <artifactId>ta404-component-dictmg</artifactId>
+        </dependency>
+        <!-- 配置管理依赖 -->
+        <dependency>
+            <groupId>com.yinhai.ta404</groupId>
+            <artifactId>ta404-component-sysconfig</artifactId>
+        </dependency>
     </dependencies>
 
     <build>

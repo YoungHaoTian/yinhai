@@ -114,6 +114,16 @@
             <artifactId>mysql-connector-java</artifactId>
             <version>5.1.47</version>
         </dependency>
+        <!-- 数据字典 -->
+        <dependency>
+            <groupId>com.yinhai.ta404</groupId>
+            <artifactId>ta404-component-dictmg</artifactId>
+        </dependency>
+        <!-- 配置管理依赖 -->
+        <dependency>
+            <groupId>com.yinhai.ta404</groupId>
+            <artifactId>ta404-component-sysconfig</artifactId>
+        </dependency>
     </dependencies>
 
     <build>
